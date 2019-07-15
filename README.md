@@ -105,7 +105,7 @@ We're going to add a custom message to the Portal Homepage.
 
 1. Inside the _CustomSpace_ folder create a new subfolder called _WelcomeMessage_
 1. Inside _WelcomeMessage_ create a new file called _WelcomeMessage.js_ and paste our working code into it.
-1. Copy and Paste the Cireson ScriptLoader code from [here](./raw/master/Snippets/ScriptLoader.js)
+1. Copy and Paste the Cireson ScriptLoader code from [here](./Snippets/ScriptLoader.js)
 
    The ScriptLoader efficiently loads external js files into the Portal. It takes two Parameters. The path to the external js file and a list of strings to look for in the URL of a page to determine whether to run the code here or not.
 
