@@ -159,7 +159,9 @@ A very useful area of customisation is custom tasks. These can be added to the f
 1. Experiment making custom tasks for other type of object, eg Service Request, Change Request, Hardware Asset, Shared Mailbox.
 
 
+## End
 
+Well done! You have complete these labs.
 
 [inspect]: https://github.com/geoffross/Leeds2019/raw/master/Images/Inspect.png "Inspect Element"
 [element]: https://github.com/geoffross/Leeds2019/raw/master/Images/Element.png "Element"
