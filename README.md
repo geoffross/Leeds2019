@@ -6,6 +6,16 @@
 3. [ Basic JavaScript Customisation ](#js)
 4. [ Creating a Custom Task ](#task)
 5. [ Advanced Task Integrating with Remote Support ](#advancedtask)
+
+## Lab Details
+
+### Server
+RDP to sandpit1377857395000.southcentralus.cloudapp.azure.com:64624  
+
+### Credentials
+Username: JohnLeeds  
+Password: Cireson123  
+
 <a name="themer"></a>
 ## 1. Applying a Basic Theme to The Cireson Service Manager Portal
 
@@ -29,7 +39,7 @@ We're going to apply a Portal theme in order to set our basic colour scheme in t
 <a name="css"></a>
 ## 2. More Specific Styling
 
-We_re going to change the appearance of a particular element, that cannot specifically be done using the themer tool. In this lab were going to change the color of the header bar, discover its unique selector and add a CSS rule.
+We're going to change the appearance of a particular element, that cannot specifically be done using the themer tool. In this lab were going to change the color of the header bar, discover its unique selector and add a CSS rule.
 
 1. Right click on the element you want to customise and choose Inspect.
 
@@ -95,7 +105,7 @@ We're going to add a custom message to the Portal Homepage.
 
 1. Inside the _CustomSpace_ folder create a new subfolder called _WelcomeMessage_
 1. Inside _WelcomeMessage_ create a new file called _WelcomeMessage.js_ and paste our working code into it.
-1. Copy and Paste the Cireson ScriptLoader code from [here](../raw/master/Snippets/ScriptLoader.js)
+1. Copy and Paste the Cireson ScriptLoader code from [here](./raw/master/Snippets/ScriptLoader.js)
 
    The ScriptLoader efficiently loads external js files into the Portal. It takes two Parameters. The path to the external js file and a list of strings to look for in the URL of a page to determine whether to run the code here or not.
 
@@ -121,8 +131,33 @@ We're going to add a custom message to the Portal Homepage.
 <a name="task"></a>
 ## 4. Creating a Custom Task
 
-<a name="advancedtask"></a>
-## 5. Advanced Task Integrating with Remote Support
+A very useful area of customisation is custom tasks. These can be added to the form of any type of SCSM Object to perform pre-defined repeatable functions. In this lab we're going to create a custom task to run on an Incident.
+
+1. Once again, rather than add our code directly to _custom.js_ we'll add a subfolder and external js file and load it using the ScriptLoader. Create a Subfolder and file for our custom task, both called _IncidentTask_.
+
+1. Add the base code for the task into _IncidentTask.js_ We'll add the _DoSomething_ later.
+   ```javascript
+   app.custom.formTasks.add('Incident', "Custom Task", function (formObj, viewModel) {
+     //Do Something
+   });
+   ```
+1. Use the ScriptLoader to ensure this code runs on every Incident page but nowhere else.
+1. Refresh the Portal and open any Incident from Active Work. We should see our custom task on the right.
+1. Now we can replace the _//Do Something_ with some more JavaScript to make our task do something.
+   ```javascript
+   app.custom.formTasks.add('Incident', "Custom Task", function (formObj, viewModel) {
+     alert("Hello World");
+   });
+   ```
+1. Because we have access to the Incident data in the _viewModel_ object, we can also make it do something useful.
+   ```javascript
+   app.custom.formTasks.add('Incident', "Custom Task", function (formObj, viewModel) {
+     viewModel.set("Title","This is a new Title");
+   });
+   ```
+1. Experiment with other JavaScript snippets to make more custom tasks
+1. Experiment making custom tasks for other type of object, eg Service Request, Change Request, Hardware Asset, Shared Mailbox.
+
 
 
 
